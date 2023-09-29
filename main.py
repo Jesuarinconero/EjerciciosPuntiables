@@ -5,5 +5,4 @@ print("Mensaje a enviar: ")
 if frase[-1] != ".":
     frase = frase + "."
 fraseStop = frase.replace(".", " STOP") + "STOP"
-
 print(fraseStop)
