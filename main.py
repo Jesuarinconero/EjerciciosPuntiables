@@ -17,3 +17,6 @@ for i in frase:
     else:
         corto=+1
 print(frase)
+print(long_frase)
+#print("La cadena contiene"+ long_frase + "palabras de las cuales" )#larga +  "tienen más de 5 letras.")
+#print("Por tanto, al precio de 0.25€/palabra tenemos "5" y a 0.50€/palabra hay otras 4.")
