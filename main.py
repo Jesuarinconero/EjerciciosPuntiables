@@ -6,4 +6,14 @@ if frase[-1] != ".":
     frase = frase + "."
 fraseStop = frase.replace(".", " STOP") + "STOP"
 print(fraseStop)
+
+frase = frase.replace(".", "")
+print(frase)
+frase = frase.split(" ")
+for i in frase:
+    long_frase = (len(frase))
+    if long_frase>5:
+        larga=+1
+    else:
+        corto=+1
 print(frase)
