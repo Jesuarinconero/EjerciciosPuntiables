@@ -1,4 +1,4 @@
-print("\t\t\t\033[4;1m"+"PROGRAMA TELEGRAMA\n"+"\033[0;m")
+print(f"\t\t\t\033[4;1m"+"PROGRAMA TELEGRAMA\n"+"\033[0;m")
 frase = input("Teclea el mensaje: ")
 print("Cadena tecleada: " + frase)
 print("Mensaje a enviar: ")
@@ -10,13 +10,15 @@ print(fraseStop)
 frase = frase.replace(".", "")
 print(frase)
 frase = frase.split(" ")
-for i in frase:
-    long_frase = (len(frase))
-    if long_frase>5:
-        larga=+1
+larga = 0
+corto = 0
+longi_frase = (len(frase))
+for palabra in frase:
+    if palabra > 5:
+        larga = larga + frase
     else:
-        corto=+1
+        corto = corto + frase
 print(frase)
-print(long_frase)
+print(longi_frase)
 #print("La cadena contiene"+ long_frase + "palabras de las cuales" )#larga +  "tienen más de 5 letras.")
 #print("Por tanto, al precio de 0.25€/palabra tenemos "5" y a 0.50€/palabra hay otras 4.")
