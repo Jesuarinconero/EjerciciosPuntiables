@@ -1,7 +1,9 @@
 print(f"\t\t\t\033[4;1m"+"PROGRAMA TELEGRAMA\n"+"\033[0;m")
+# El usuario deberá introducir la frase
 frase = input("Teclea el mensaje: ")
 print("Cadena tecleada: " + frase)
 print("Mensaje a enviar: ")
+# Especificaremos que si el usuario no introduce ningun punto final lo pondra el programa solo
 if frase[-1] != ".":
     frase = frase + "."
 fraseStop = frase.replace(".", " STOP") + "STOP"
@@ -18,7 +20,6 @@ for palabra in frase:
         larga = larga + 1
     else:
         corto = corto + 1
-
 To_largo = larga*0.5
 To_corto = corto*0.25
 Total = To_corto+To_largo
