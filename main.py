@@ -10,6 +10,7 @@ print(fraseStop)
 frase = frase.replace(".", "")
 print(frase)
 frase = frase.split(" ")
+print(frase)
 larga = 0
 corto = 0
 longi_frase = (len(frase))
