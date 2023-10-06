@@ -38,7 +38,7 @@ for palabra in frase:
 To_largo = larga*0.5
 To_corto = corto*0.25
 Total = To_corto+To_largo
-# Salida por pantalla de los resultados obtenidos.
-print("La cadena contiene " + str(lon_frase) + " palabras de las cuales " + str(larga) + " tienen más de 5 letras.")
-print("Por tanto, al precio de 0.25€/palabra tenemos "+str(corto)+" y a 0.50€/palabra hay otras "+str(larga)+".")
-print("Total: "+str(Total)+"€")
+# Salida por pantalla de los resultados obtenidos, usando los f-Strings para un formateo sencillo de la cadena.
+print(f"La cadena contiene  {lon_frase}  palabras de las cuales {larga} tienen más de 5 letras.")
+print(f"Por tanto, al precio de 0.25€/palabra tenemos {corto} y a 0.50€/palabra hay otras {larga}.")
+print(f"Total: {Total}€")
