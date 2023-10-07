@@ -30,9 +30,9 @@ y nos lo asignen a la variable larga, si no por lo tanto sera menor a 5 caracter
 """
 for palabra in frase:
     if len(palabra) > 5:
-        larga = larga + 1
+        larga += 1
     else:
-        corto = corto + 1
+        corto +=  1
         
 # Operaciones aritméticas para darnos el resultado de lo que costara enviar las palabras escritas.
 To_largo = larga*0.5
