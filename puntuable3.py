@@ -55,19 +55,33 @@ def normal(arg):
     print("Mensaje enviado: ")
     print(fraseStop)
     print()
-def pre_redu(arg):
+def pre_redu(fraseStop):
+
+    frase = fraseStop
+    frase = frase.split(" ")
     
-    frase = "".join(arg)
+    pa_redu = []
     lon_frase = (len(frase))
     larga = 0
     corto = 0
+
     for palabra in frase:
         if len(palabra) > 5:
-            larga += 1
-            
+            corto += 1
+            palabra = palabra[:5] + "@"
+            pa_redu.append(palabra)
         else:
             corto += 1
+            pa_redu.append(palabra)
+    To_corto = corto * 0.25
+
+    pa_redu = " ".join(pa_redu)
     print(f"\nLa cadena contiene  {lon_frase}  palabras de las cuales {larga} tienen más de 5 letras  pero se han recortado.")
+    print("Por tanto, el mensaje se envía al precio de 0.25€/palabra.  ")
+    print(f"Precio Total: {To_corto}€")
+    print("Mensaje enviado: ")
+    print(pa_redu)
+    print()
 def morse():
     print("codigo morse")
 
@@ -85,7 +99,8 @@ while not salir:
     if opcion == 1:
         normal(arg)
     elif opcion == 2:
-        pre_redu(arg)
+
+        pre_redu(fraseStop=arg)
     elif opcion == 3:
         morse()
     elif opcion == 4:
