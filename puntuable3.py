@@ -10,6 +10,7 @@ arg = " ".join(arg)
 
 print(f"Cadena recibida: {arg}\n")
 
+
 def normal(arg):
     # Asignación de variables a 0 para que no coga unos valores erróneos residuales, variables que nos harán falta más adelante.
     larga = 0
@@ -23,7 +24,6 @@ def normal(arg):
 
     # Ahora indicamos que nos reemplace todos los puntos de la frase por STOPS.
     fraseStop = frase.replace(".", " STOP") + "STOP"
-
 
     # Ahora indicamos que nos quite todos los puntos, y por si el usuario pone comas también para que nos lo quite  en la frase anteriormente introducida.
     frase = frase.replace(".", "").replace(",", "")
@@ -55,35 +55,57 @@ def normal(arg):
     print("Mensaje enviado: ")
     print(fraseStop)
     print()
-def pre_redu(fraseStop):
 
-    frase = fraseStop
+
+def pre_redu(arg):
+
+    frase = arg
+    frase = frase.replace(".", " STOP") + "STOP"
     frase = frase.split(" ")
-    
-    pa_redu = []
+
     lon_frase = (len(frase))
+
+
+
+    pa_redu = []
+
     larga = 0
     corto = 0
 
     for palabra in frase:
-        if len(palabra) > 5:
-            corto += 1
+        if len(palabra) > 5 and "STOP" not in palabra:
+            larga += 1
             palabra = palabra[:5] + "@"
             pa_redu.append(palabra)
         else:
             corto += 1
             pa_redu.append(palabra)
-    To_corto = corto * 0.25
+    Total = (larga+corto) * 0.25
 
     pa_redu = " ".join(pa_redu)
     print(f"\nLa cadena contiene  {lon_frase}  palabras de las cuales {larga} tienen más de 5 letras  pero se han recortado.")
     print("Por tanto, el mensaje se envía al precio de 0.25€/palabra.  ")
-    print(f"Precio Total: {To_corto}€")
+    print(f"Precio Total: {Total}€")
     print("Mensaje enviado: ")
     print(pa_redu)
     print()
+
+
 def morse():
     print("codigo morse")
+    morse_dict = {
+        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+        'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+        'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+        'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+        'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+        'Z': '--..',
+        '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-',
+        '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+        '.': '.-.-.-',
+        # Caracteres que no están en el diccionario
+        '?': '???'
+    }
 
 
 salir = False
@@ -99,8 +121,7 @@ while not salir:
     if opcion == 1:
         normal(arg)
     elif opcion == 2:
-
-        pre_redu(fraseStop=arg)
+        pre_redu(arg)
     elif opcion == 3:
         morse()
     elif opcion == 4:
@@ -109,5 +130,4 @@ while not salir:
 
     else:
         print("Introduce un número entre 1 y 4")
-
 
