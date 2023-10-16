@@ -18,10 +18,6 @@ def normal(arg):
 
     frase = "".join(arg)
 
-    # Especificaremos que si el usuario no introduce ningún punto final lo pondrá el programa solo.
-    if frase[-1] != ".":
-        frase = frase + "."
-
     # Ahora indicamos que nos reemplace todos los puntos de la frase por STOPS.
     fraseStop = frase.replace(".", " STOP") + "STOP"
 
@@ -58,36 +54,36 @@ def normal(arg):
 
 
 def pre_redu(arg):
+    frase = "".join(arg)
 
-    frase = arg
-    frase = frase.replace(".", " STOP") + "STOP"
+    frase = frase.replace(".", " STOP")
     frase = frase.split(" ")
-
-    lon_frase = (len(frase))
-
-
+    lon_frase = len([palabra for palabra in frase if palabra != "STOP"])
 
     pa_redu = []
-
     larga = 0
     corto = 0
 
     for palabra in frase:
-        if len(palabra) > 5 and "STOP" not in palabra:
+        if len(palabra) > 5:
             larga += 1
             palabra = palabra[:5] + "@"
+            pa_redu.append(palabra)
+        elif palabra == "STOP":
             pa_redu.append(palabra)
         else:
             corto += 1
             pa_redu.append(palabra)
-    Total = (larga+corto) * 0.25
 
+    Total = (larga + corto) * 0.25
     pa_redu = " ".join(pa_redu)
-    print(f"\nLa cadena contiene  {lon_frase}  palabras de las cuales {larga} tienen más de 5 letras  pero se han recortado.")
-    print("Por tanto, el mensaje se envía al precio de 0.25€/palabra.  ")
+
+    print(f"\nLa cadena contiene {lon_frase} palabras de las cuales {larga} tienen más de 5 letras pero se han recortado.")
+    print("Por tanto, el mensaje se envía al precio de 0.25€/palabra.")
     print(f"Precio Total: {Total}€")
-    print("Mensaje enviado: ")
-    print(pa_redu)
+    print("Mensaje enviado:")
+    
+    print(pa_redu + "STOP")
     print()
 
 
@@ -130,4 +126,3 @@ while not salir:
 
     else:
         print("Introduce un número entre 1 y 4")
-
